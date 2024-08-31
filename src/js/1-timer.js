@@ -5,7 +5,6 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const btnStart = document.querySelector('button[data-start]');
-// const timer = document.querySelector('.timer');
 const daysLeft = document.querySelector('span[data-days]');
 const hoursLeft = document.querySelector('span[data-hours]');
 const minutesLeft = document.querySelector('span[data-minutes]');

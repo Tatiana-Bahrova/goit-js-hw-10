@@ -18,26 +18,26 @@ form.addEventListener('submit', event => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (ratioData === 'fulfilled') {
-        resolve(
-          iziToast.success({
-            position: 'topRight',
-            message: `Fulfilled promise in ${delay} ms`,
-          })
-        );
+        resolve(delay);
       } else if (ratioData === 'rejected') {
-        reject(
-          iziToast.error({
-            position: 'topRight',
-            icon: '',
-            message: `❌ Rejected promise in ${delay} ms`,
-          })
-        );
+        reject(delay);
       }
     }, delay);
     form.reset();
   });
 
   promise
-    .then(() => console.log('Promise resolved successfully'))
-    .catch(() => console.log('Promise rejected'));
+    .then(() => {
+      iziToast.success({
+        position: 'topRight',
+        message: `Fulfilled promise in ${delay} ms`,
+      });
+    })
+    .catch(() => {
+      iziToast.error({
+        position: 'topRight',
+        icon: '',
+        message: `❌ Rejected promise in ${delay} ms`,
+      });
+    });
 });
